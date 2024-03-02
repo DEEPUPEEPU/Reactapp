@@ -20,8 +20,6 @@ const Login = ({ navigation }) => {
   const handleLogin = async () => {
     try {
       const signedIn = await signInWithEmailAndPassword(auth, email, password);
-      setEmail("");
-      setPassword("");
       const userEmail = signedIn.user.email;
       if (userEmail.length != 0) {
         navigation.navigate("Home");

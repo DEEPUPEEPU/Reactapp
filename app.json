@@ -25,6 +25,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow EasyShoping to use your location.",
+          "NsLocationAlwaysAndWhenInUseUsageDescription": "Allow EasyShoping to use your location"
+        }
+      ]
+    ]
   }
 }
