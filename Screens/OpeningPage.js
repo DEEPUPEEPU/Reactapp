@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { View, Image, StyleSheet } from "react-native";
-import Bg_Img from "../assets/logo.png";
+import Bg_Img from "../assets/app.jpeg";
 
 const OpeningPage = ({ navigation }) => {
   useEffect(() => {
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: 200,
-    height: 70,
+    height: 200,
   },
 });
 

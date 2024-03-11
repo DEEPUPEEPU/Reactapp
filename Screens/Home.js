@@ -19,8 +19,8 @@ const deviceWidth = Dimensions.get("window").width;
 
 const Home = ({ navigation }) => {
   const [location, setLocation] = useState({
-    latitude: 19.091796848650176,
-    longitude: 72.90786925130544,
+    latitude: 19.215663141086022,
+    longitude: 72.81851929702815,
   });
   const [showWelcome, setShowWelcome] = useState(false);
   const userEmail = auth.currentUser ? auth.currentUser.email : "User";
@@ -77,13 +77,16 @@ const Home = ({ navigation }) => {
         </View>
       )}
       <TouchableOpacity
-        style={styles.toggleButton}
+        style={[styles.button, styles.toggleButton]}
         onPress={handleToggleSidebar}
       >
-        <Text style={styles.toggleButtonText}>{HamburgerName}</Text>
+        <Text style={styles.buttonText}>{HamburgerName}</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.locationButton} onPress={getLocation}>
-        <Text style={styles.toggleButtonText}>+</Text>
+      <TouchableOpacity
+        style={[styles.button, styles.locationButton]}
+        onPress={getLocation}
+      >
+        <Text style={styles.buttonText}>+</Text>
       </TouchableOpacity>
     </View>
   );
@@ -114,27 +117,25 @@ const styles = StyleSheet.create({
     width: deviceWidth,
     height: deviceHeight,
   },
-  toggleButton: {
+  button: {
     position: "absolute",
+    backgroundColor: "grey",
+    height: 60,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 150,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  toggleButton: {
     top: 70,
     left: 20,
-    backgroundColor: "grey",
-    height: 60,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 150,
   },
   locationButton: {
-    position: "absolute",
     top: 150,
     left: 20,
-    backgroundColor: "grey",
-    height: 60,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 150,
   },
-  toggleButtonText: {
+  buttonText: {
     color: "white",
     fontWeight: "bold",
     fontSize: 30,

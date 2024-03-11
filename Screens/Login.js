@@ -21,12 +21,12 @@ const Login = ({ navigation }) => {
     try {
       const signedIn = await signInWithEmailAndPassword(auth, email, password);
       const userEmail = signedIn.user.email;
-      if (userEmail.length != 0) {
+      if (userEmail.length !== 0) {
         navigation.navigate("Home");
       }
       console.log("Login successful");
     } catch (error) {
-      console.error("Signup error", error.message);
+      console.error("Login error", error.message);
     }
   };
 
@@ -41,15 +41,17 @@ const Login = ({ navigation }) => {
         <TextInput
           style={styles.input}
           placeholder="E-mail"
+          placeholderTextColor="#ccc"
           onChangeText={(text) => setEmail(text)}
         />
         <TextInput
           style={styles.input}
           placeholder="Password"
+          placeholderTextColor="#ccc"
           secureTextEntry
           onChangeText={(text) => setPassword(text)}
         />
-        <Button style={styles.button} title="Login" onPress={handleLogin} />
+        <Button title="Login" color="#444" onPress={handleLogin} />
         <Text style={styles.link} onPress={navigateToSignup}>
           Don't have an account? Signup here
         </Text>
@@ -67,30 +69,28 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    padding: 16,
+    paddingHorizontal: 20,
+    backgroundColor: "#222",
   },
   title: {
-    fontSize: 24,
-    marginBottom: 16,
+    fontSize: 28,
+    fontWeight: "bold",
+    marginBottom: 24,
+    color: "#ccc",
   },
   input: {
     height: 40,
     width: "100%",
-    borderColor: "gray",
+    borderColor: "#444",
     borderWidth: 1,
-    marginBottom: 12,
-    paddingLeft: 8,
+    marginBottom: 16,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    color: "#ccc",
   },
   link: {
-    color: "blue",
+    color: "#00f",
     marginTop: 16,
-  },
-  button: {
-    height: 40,
-    width: "50%",
-    borderWidth: 1,
-    backgroundColor: "blue",
-    color: "White",
   },
 });
 
